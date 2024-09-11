@@ -1,0 +1,31 @@
+﻿@{
+    var _Categories = ViewBag.Categories;
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Category Name</th>
+            <th scope="col">Category Desciption</th>
+            <th scope="col">View</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in _Categories)
+        {
+            <tr>
+                <th scope="col">@item.CategoryId</th>
+                <th scope="col">@item.Name</th>
+                <th scope="col">@item.Description</th>
+                <th scope="col"><a href="~/Category/ViewDetails/@item.CategoryId" class="btn btn-primary">View Details</a></th>
+                <th scope="col"><a href="~/Category/Edit/@item.CategoryId" class="btn btn-warning">Edit</a></th>
+                <th scope="col"><a href="~/Category/Delete/@item.CategoryId" class="btn btn-danger">Delete</a></th>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <a href="~/Category/Create" class="btn btn-primary">Create New</a>
+    </tfoot>
+</table>
+
